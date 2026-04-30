@@ -48,7 +48,7 @@
     "age": 3,
     "location": "Comilla",
     "description": "Large Jamunapari goat with strong build.",
-    "image": "/animals/goatNew2.jpg",
+    "image": "/animals/goat2.jpg",
     "category": "Goat"
   },
   {
@@ -61,7 +61,7 @@
     "age": 2,
     "location": "Sylhet",
     "description": "Healthy local sheep suitable for Qurbani sacrifice.",
-    "image": "/public/animals/sheep1.jpg",
+    "image": "/animals/sheep1.jpg",
     "category": "Sheep"
   },
   {
@@ -74,7 +74,7 @@
     "age": 3,
     "location": "Rajshahi",
     "description": "High quality fat tail sheep with good meat quality.",
-    "image": "/public/animals/sheep2.jpg",
+    "image": "/animals/sheep2.jpg",
     "category": "Sheep"
   },
   {
@@ -87,7 +87,7 @@
     "age": 3,
     "location": "Barisal",
     "description": "Strong hybrid cow with balanced weight.",
-    "image": "/public/animals/cow3.jpg",
+    "image": "/animals/cow3.jpg",
     "category": "Cattle"
   },
   {
@@ -100,7 +100,7 @@
     "age": 4,
     "location": "Mymensingh",
     "description": "Big white bull suitable for large Qurbani.",
-    "image": "/public/animals/cow4.jpg",
+    "image": "/animals/cow4.jpg",
     "category": "Cattle"
   },
   {
@@ -113,7 +113,7 @@
     "age": 1,
     "location": "Narayanganj",
     "description": "Young healthy goat ideal for small families.",
-    "image": "/public/animals/goat3.jpg",
+    "image": "/animals/goat3.jpg",
     "category": "Goat"
   },
   {
@@ -126,7 +126,7 @@
     "age": 2,
     "location": "Rangpur",
     "description": "Strong ram with good body structure.",
-    "image": "/public/animals/sheep3.jpg",
+    "image": "/animals/sheep3.jpg",
     "category": "Sheep"
   },
   {
@@ -139,7 +139,7 @@
     "age": 4,
     "location": "Gazipur",
     "description": "Well-fed hybrid bull with high demand.",
-    "image": "/public/animals/cow5.jpg",
+    "image": "/animals/cow5.jpg",
     "category": "Cattle"
   },
   {
@@ -152,7 +152,7 @@
     "age": 1,
     "location": "Chattogram",
     "description": "Small pygmy goat, cute and healthy.",
-    "image": "/public/animals/goat4.jpg",
+    "image": "/animals/goat4.jpg",
     "category": "Goat"
   }
 ]   
