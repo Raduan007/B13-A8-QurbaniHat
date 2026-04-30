@@ -9,7 +9,7 @@
     "age": 3,
     "location": "Bogura",
     "description": "Healthy local Deshi Shahi cow suitable for Qurbani.",
-    "image": "/public/animals/cow1.jpg",
+    "image": "/animals/cow1.jpg",
     "category": "Cattle"
   },
   {
@@ -22,7 +22,7 @@
     "age": 4,
     "location": "Dhaka",
     "description": "Premium quality Red Angus bull with high meat yield.",
-    "image": "/public/animals/cow2.jpg",
+    "image": "/animals/cow2.jpg",
     "category": "Cattle"
   },
   {
@@ -35,7 +35,7 @@
     "age": 2,
     "location": "Khulna",
     "description": "Healthy Black Bengal goat, perfect for Qurbani.",
-    "image": "/public/animals/goat1.jpg",
+    "image": "/animals/goat1.jpg",
     "category": "Goat"
   },
   {
@@ -48,7 +48,7 @@
     "age": 3,
     "location": "Comilla",
     "description": "Large Jamunapari goat with strong build.",
-    "image": "/public/animals/goatNew2.jpg",
+    "image": "/animals/goatNew2.jpg",
     "category": "Goat"
   },
   {
