@@ -1,14 +1,12 @@
-import AnimalCard from "./AnimalCard";
+import AnimalCard from "@/components/AnimalCard";
 
-
-const FeaturedAnimals = async () => {
+const AllAnimalsPage = async () => {
 const res = await fetch('https://b13-a8-qurbani-hat.vercel.app/data.json',
    { cache: 'no-store',} );
     const animals = await res.json();
-    const TopAnimals = animals.slice(0,4);
-    
+   
     return (
-        <div>
+            <div>
             <div className="text-center ">
                 <h1 className="text-4xl md:text-6xl font-bold text-yellow-500 ">
             Find Your Perfect Animal
@@ -18,10 +16,10 @@ const res = await fetch('https://b13-a8-qurbani-hat.vercel.app/data.json',
            </p>
             </div>
             <div className="grid grid-cols-4">
-                {TopAnimals.map (animal => <AnimalCard key={animal.id} animal ={animal} /> )}
+                {animals.map (animal => <AnimalCard key={animal.id} animal ={animal} /> )}
             </div>
         </div>
     );
 };
 
-export default FeaturedAnimals;
+export default AllAnimalsPage;

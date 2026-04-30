@@ -1,17 +1,17 @@
 [
-  {
-    "id": 1,
-    "name": "Deshi Shahi Cow",
-    "type": "Cow",
-    "breed": "Local Deshi",
-    "price": 120000,
-    "weight": 280,
-    "age": 3,
-    "location": "Bogura",
-    "description": "Healthy local Deshi Shahi cow suitable for Qurbani.",
-    "image": "/animals/cow1.jpg",
-    "category": "Cattle"
-  },
+    {
+      "id": 1,
+      "name": "Deshi Shahi Cow",
+      "type": "Cow",
+      "breed": "Local Deshi",
+      "price": 120000,
+      "weight": 280,
+      "age": 3,
+      "location": "Bogura",
+      "description": "Healthy local Deshi Shahi cow suitable for Qurbani.",
+      "image": "/animals/cow1.jpg",
+      "category": "Cattle"
+    },
   {
     "id": 2,
     "name": "Red Angus Bull",

@@ -7,7 +7,7 @@ const Banner = () => {
       <section className="bg-[url('/banner.png')] bg-cover bg-center">
             <div className="text-white   space-y-8  py-30 px-40">
               <h2 className='text-6xl font-bold'> 
-                  <span className='text-gray-500'>Welcome To Qurbani <br /> </span> Eid Market
+                  <span className='text-blue-400'>Welcome To Qurbani <br /> </span> Eid Market
                   </h2>
               <p className='opacity-70 text-blue-300'>Discover the traditions, meaning, and beautiful celebrations of Eid al-Adha, also known as Qurbani Eid, and understand its importance in Islam.</p>
               <Link 

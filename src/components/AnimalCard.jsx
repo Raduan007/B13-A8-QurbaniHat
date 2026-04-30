@@ -1,26 +1,38 @@
-import { Card } from "@heroui/react";
+import { Card, Chip } from "@heroui/react";
 import Image from "next/image";
+import Link from "next/link";
 
 const AnimalCard = ({ animal }) => {
   return (
     <Card className="p-3">
-      <div className="border">
-        <Image
-          src={animal.image}
-          height={200}
-          width={200}
-          alt={animal.type}
-          className="rounded-lg object-cover"
-        />
-           <div className="flex text-center justify-evenly items-center">
-            <h2 className="mt-2 font-bold">{animal.name}</h2>
-           <p>{animal.price}</p>
-           </div>
-           <h2>{animal.description}</h2>
-           <div className="text-center">
-           <button className="">View Details</button>
-           </div>
-      </div>
+      <div className="border rounded-lg p-4 shadow-sm space-y-3">
+  <div className="overflow-hidden rounded-lg relative w-full aspect-square">
+    <Image
+      src={animal.image}
+       fill = {true}
+       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 30vw "
+      alt={animal.type}
+      className="w-full h-48 rounded-lg object-cover"/>
+     
+     <Chip className="absolute right-2 top-2 px-3">{animal.category}</Chip>
+
+  </div>
+
+  <div className="flex items-center justify-between text-center">
+    <h2 className="font-bold text-lg">{animal.name}</h2>
+    <p className="text-gray-600">${animal.price}</p>
+  </div>
+
+  <p className="text-sm text-gray-500">{animal.description}</p>
+
+  <div className="text-center pt-2">
+    <Link
+       href={`/all-animals/${animal.id}`}
+      className="inline-block px-4 py-2 bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-md transition-all duration-300 hover:scale-105 active:scale-95">
+       View Details
+    </Link>
+    </div>
+</div>
     </Card>
   );
 };
