@@ -9,7 +9,7 @@
     "age": 3,
     "location": "Bogura",
     "description": "Healthy local Deshi Shahi cow suitable for Qurbani.",
-    "image": "/animals/cow1.jpg",
+    "image": "/public/animals/cow1.jpg",
     "category": "Cattle"
   },
   {
@@ -22,7 +22,7 @@
     "age": 4,
     "location": "Dhaka",
     "description": "Premium quality Red Angus bull with high meat yield.",
-    "image": "/animals/cow2.jpg",
+    "image": "/public/animals/cow2.jpg",
     "category": "Cattle"
   },
   {
@@ -35,7 +35,7 @@
     "age": 2,
     "location": "Khulna",
     "description": "Healthy Black Bengal goat, perfect for Qurbani.",
-    "image": "/animals/goat1.jpg",
+    "image": "/public/animals/goat1.jpg",
     "category": "Goat"
   },
   {
@@ -48,7 +48,7 @@
     "age": 3,
     "location": "Comilla",
     "description": "Large Jamunapari goat with strong build.",
-    "image": "/animals/goat2.jpg",
+    "image": "/public/animals/goatNew2.jpg",
     "category": "Goat"
   },
   {
@@ -61,7 +61,7 @@
     "age": 2,
     "location": "Sylhet",
     "description": "Healthy local sheep suitable for Qurbani sacrifice.",
-    "image": "/animals/sheep1.jpg",
+    "image": "/public/animals/sheep1.jpg",
     "category": "Sheep"
   },
   {
@@ -74,7 +74,7 @@
     "age": 3,
     "location": "Rajshahi",
     "description": "High quality fat tail sheep with good meat quality.",
-    "image": "/animals/sheep2.jpg",
+    "image": "/public/animals/sheep2.jpg",
     "category": "Sheep"
   },
   {
@@ -87,7 +87,7 @@
     "age": 3,
     "location": "Barisal",
     "description": "Strong hybrid cow with balanced weight.",
-    "image": "/animals/cow3.jpg",
+    "image": "/public/animals/cow3.jpg",
     "category": "Cattle"
   },
   {
@@ -100,7 +100,7 @@
     "age": 4,
     "location": "Mymensingh",
     "description": "Big white bull suitable for large Qurbani.",
-    "image": "/animals/cow4.jpg",
+    "image": "/public/animals/cow4.jpg",
     "category": "Cattle"
   },
   {
@@ -113,7 +113,7 @@
     "age": 1,
     "location": "Narayanganj",
     "description": "Young healthy goat ideal for small families.",
-    "image": "/animals/goat3.jpg",
+    "image": "/public/animals/goat3.jpg",
     "category": "Goat"
   },
   {
@@ -126,7 +126,7 @@
     "age": 2,
     "location": "Rangpur",
     "description": "Strong ram with good body structure.",
-    "image": "/animals/sheep3.jpg",
+    "image": "/public/animals/sheep3.jpg",
     "category": "Sheep"
   },
   {
@@ -139,7 +139,7 @@
     "age": 4,
     "location": "Gazipur",
     "description": "Well-fed hybrid bull with high demand.",
-    "image": "/animals/cow5.jpg",
+    "image": "/public/animals/cow5.jpg",
     "category": "Cattle"
   },
   {
@@ -152,7 +152,7 @@
     "age": 1,
     "location": "Chattogram",
     "description": "Small pygmy goat, cute and healthy.",
-    "image": "/animals/goat4.jpg",
+    "image": "/public/animals/goat4.jpg",
     "category": "Goat"
   }
-]
+]   
