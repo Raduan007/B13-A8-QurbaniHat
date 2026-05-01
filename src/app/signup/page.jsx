@@ -36,18 +36,22 @@ export default function SignUpPage() {
       password,
     });
 
-    if (error) {
-      toast.error(error.message || "Signup failed ");
-      return;
-    }
+      if (error) {
+        toast.error(error.message || "Signup failed ");
+        return;
+      }
 
-    toast.success("Account created successfully ");
+      toast.success("Account created successfully ");
 
-    setTimeout(() => {
-      router.push("/");
-    }, 1000);
-  };
-
+      setTimeout(() => {
+        router.push("/");
+      }, 1000);
+    };
+        const handleGoogleSignUp = async ()=>{
+          await authClient.signIn.social({
+            provider: 'google',
+          })
+        }
   return (
     <Card className="border mx-auto w-125 py-10">
       <h1 className="text-center text-4xl font-bold text-blue-600">
@@ -131,6 +135,7 @@ export default function SignUpPage() {
 
         {/* GOOGLE BUTTON */}
         <button
+        onClick={handleGoogleSignUp}
           type="button"
           className="w-full border py-4 rounded-xl flex items-center justify-center gap-3 hover:bg-gray-100 transition"
         >
@@ -140,7 +145,7 @@ export default function SignUpPage() {
             width={22}
             height={22}
           />
-          <span className="text-base">Continue with Google</span>
+          <span className="text-base o">Continue with Google</span>
         </button>
 
         {/* LOGIN LINK */}
