@@ -6,30 +6,30 @@ const QurBaniTips = () => {
         Qurbani Guidelines & Tips
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-8">
 
-        <div className="p-5 border rounded-xl shadow-sm hover:shadow-md transition bg-white">
+        <div className="p-5 border rounded-xl shadow-sm transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl active:scale-95 bg-white">
           <h3 className="font-bold text-lg">Choose Healthy Animal</h3>
           <p className="text-sm text-gray-600 mt-2">
             Select a strong, disease-free animal with good body condition and no visible defects.
           </p>
         </div>
 
-        <div className="p-5 border rounded-xl shadow-sm hover:shadow-md transition bg-white">
+        <div className="p-5 border rounded-xl shadow-sm transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl active:scale-95 bg-white">
           <h3 className="font-bold text-lg">Correct Age Requirement</h3>
           <p className="text-sm text-gray-600 mt-2">
             Ensure the animal meets the Islamic age requirement: goat (1+ year), cow (2+ years), camel (5+ years).
           </p>
         </div>
 
-        <div className="p-5 border rounded-xl shadow-sm hover:shadow-md transition bg-white">
+        <div className="p-5 border rounded-xl shadow-sm transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl active:scale-95 bg-white">
           <h3 className="font-bold text-lg">Proper Feeding & Care</h3>
           <p className="text-sm text-gray-600 mt-2">
             Provide clean water, nutritious food, and a stress-free environment before Qurbani.
           </p>
         </div>
 
-        <div className="p-5 border rounded-xl shadow-sm hover:shadow-md transition bg-white">
+        <div className="p-5 border rounded-xl shadow-sm transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl active:scale-95 bg-white">
           <h3 className="font-bold text-lg">Follow Islamic Rules</h3>
           <p className="text-sm text-gray-600 mt-2">
             Perform Qurbani with correct intention (niyyah) and follow Sunnah guidelines properly.
