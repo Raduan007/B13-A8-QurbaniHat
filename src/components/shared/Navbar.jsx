@@ -19,66 +19,14 @@ const Navbar = () => {
     await authClient.signOut();
   };
 
-  // ✅ SINGLE SOURCE OF TRUTH
   const navItems = [
     { name: "Home", href: "/" },
     { name: "All Animals", href: "/all-animals" },
   ];
 
-  const NavLinks = ({ onClick }) => (
-    <>
-      {navItems.map((item) => (
-        <Link
-          key={item.href}
-          href={item.href}
-          onClick={onClick}
-          className={`px-3 py-2 rounded-md transition ${
-            pathname === item.href
-              ? "bg-blue-700"
-              : "hover:bg-gray-800"
-          }`}
-        >
-          {item.name}
-        </Link>
-      ))}
-    </>
-  );
-
-  const AuthSection = () => {
-    if (!user) {
-      return (
-        <>
-          <Link href="/signup" onClick={() => setOpen(false)}>
-            SignUp
-          </Link>
-          <Link href="/signin" onClick={() => setOpen(false)}>
-            SignIn
-          </Link>
-        </>
-      );
-    }
-
-    return (
-      <div className="flex items-center justify-between w-full">
-        <div className="flex items-center gap-2">
-          <Avatar size="sm">
-            <Avatar.Image src={user?.image} />
-            <Avatar.Fallback>
-              {user?.name?.charAt(0)}
-            </Avatar.Fallback>
-          </Avatar>
-          <span>{user?.name}</span>
-        </div>
-
-        <Button onClick={handleSignOut} size="sm">
-          Sign Out
-        </Button>
-      </div>
-    );
-  };
-
   return (
-    <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700">
+    <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700 relative">
+
       <nav className="flex justify-between items-center px-4 py-2">
 
         {/* LOGO */}
@@ -89,37 +37,96 @@ const Navbar = () => {
           </h3>
         </div>
 
-        {/* DESKTOP (same logic) */}
-        <div className="hidden md:flex items-center gap-5">
-          <NavLinks />
-        </div>
-
-        {/* DESKTOP AUTH */}
-        <div className="hidden md:flex items-center gap-4">
-          <AuthSection />
-        </div>
-
-        {/* MOBILE HAMBURGER */}
-        <button className="md:hidden" onClick={() => setOpen(!open)}>
-          {open ? <FiX size={22} /> : <FiMenu size={22} />}
+        {/* HAMBURGER */}
+        <button className="md:hidden" onClick={() => setOpen(true)}>
+          <FiMenu size={22} />
         </button>
+
+        {/* DESKTOP NAV */}
+        <div className="hidden md:flex gap-4">
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href}>
+              {item.name}
+            </Link>
+          ))}
+        </div>
       </nav>
 
-     
+      {/* BACKDROP */}
       {open && (
-        <div className="md:hidden bg-gray-800 px-4 py-3 space-y-3">
+        <div
+          onClick={() => setOpen(false)}
+          className="fixed inset-0 bg-black/50 z-40"
+        />
+      )}
 
-       
-          <div className="flex flex-col gap-2">
-            <NavLinks onClick={() => setOpen(false)} />
+      {/* DRAWER (25% RIGHT SIDE) */}
+      <div
+        className={`fixed top-0 right-0 h-full w-[25%] bg-gray-900 z-50 transform transition-transform duration-300 ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+
+        <div className="p-4 flex flex-col gap-4">
+
+          {/* CLOSE */}
+          <div className="flex justify-end">
+            <button onClick={() => setOpen(false)}>
+              <FiX size={22} />
+            </button>
           </div>
 
-          <hr className="border-gray-600" />
+          {/* NAV ITEMS */}
+          <div className="flex flex-col gap-3">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className={`px-2 py-2 rounded ${
+                  pathname === item.href ? "bg-blue-700" : "hover:bg-gray-800"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
 
-    
-          <AuthSection />
+          <hr className="border-gray-700" />
+
+          {/* AUTH */}
+          {!user ? (
+            <div className="flex flex-col gap-2">
+              <Link href="/signup" onClick={() => setOpen(false)}>
+                SignUp
+              </Link>
+              <Link href="/signin" onClick={() => setOpen(false)}>
+                SignIn
+              </Link>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-3">
+
+              {/* Avatar */}
+              <div className="flex items-center gap-2">
+                <Avatar size="sm">
+                  <Avatar.Image src={user?.image} />
+                  <Avatar.Fallback>
+                    {user?.name?.charAt(0)}
+                  </Avatar.Fallback>
+                </Avatar>
+                <span className="text-sm">{user?.name}</span>
+              </div>
+
+              {/* Sign out below avatar */}
+              <Button size="sm" onClick={handleSignOut}>
+                Sign Out
+              </Button>
+            </div>
+          )}
+
         </div>
-      )}
+      </div>
     </div>
   );
 };
