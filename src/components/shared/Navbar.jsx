@@ -25,19 +25,65 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700 relative">
+    <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700">
 
-      {/* NAVBAR */}
       <nav className="flex justify-between items-center px-4 py-2">
 
+        {/* LOGO */}
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="logo" width={45} height={45} />
-          <h3 className="font-bold text-xl">
+          <h3 className="font-bold text-4xl">
             QurbaniHat <span className="text-red-400">Livestock</span>
+            Booking Platform
           </h3>
         </div>
 
-        <button className="md:hidden" onClick={() => setOpen(true)}>
+        {/* 🖥️ DESKTOP NAV (NO HAMBURGER HERE) */}
+        <div className="hidden md:flex items-center gap-6">
+
+          {/* NAV LINKS */}
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`px-3 py-2 rounded ${
+                pathname === item.href
+                  ? "bg-blue-700"
+                  : "hover:bg-gray-800"
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
+
+          {/* AUTH (DESKTOP) */}
+          {!user ? (
+            <div className="flex gap-3 ml-4">
+              <Link href="/signup">SignUp</Link>
+              <Link href="/signin">SignIn</Link>
+            </div>
+          ) : (
+            <div className="flex items-center gap-3 ml-4">
+              <Avatar size="sm">
+                <Avatar.Image src={user?.image} />
+                <Avatar.Fallback>
+                  {user?.name?.charAt(0)}
+                </Avatar.Fallback>
+              </Avatar>
+
+              <Button size="sm" onClick={handleSignOut}>
+                Sign Out
+              </Button>
+            </div>
+          )}
+
+        </div>
+
+        {/* 📱 MOBILE HAMBURGER ONLY */}
+        <button
+          className="md:hidden"
+          onClick={() => setOpen(true)}
+        >
           <FiMenu size={22} />
         </button>
 
@@ -51,16 +97,16 @@ const Navbar = () => {
         />
       )}
 
-      {/* COMPACT DRAWER (30% WIDTH ONLY, AUTO HEIGHT) */}
+      {/* 📱 MOBILE DRAWER (30% RIGHT SIDE) */}
       <div
-        className={`fixed top-4 right-4 w-[30%] bg-gray-900 rounded-lg shadow-2xl z-50 transform transition-all duration-300 ${
+        className={`fixed top-4 right-4 w-[30%] bg-gray-900 rounded-lg z-50 transition-all duration-300 ${
           open ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         }`}
       >
 
         <div className="p-4 flex flex-col gap-3">
 
-          {/* CLOSE BUTTON */}
+          {/* CLOSE */}
           <div className="flex justify-end">
             <button onClick={() => setOpen(false)}>
               <FiX size={20} />
@@ -68,26 +114,20 @@ const Navbar = () => {
           </div>
 
           {/* NAV */}
-          <div className="flex flex-col gap-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className={`px-2 py-2 rounded text-sm ${
-                  pathname === item.href
-                    ? "bg-blue-700"
-                    : "hover:bg-gray-800"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className="px-2 py-2 hover:bg-gray-800 rounded text-sm"
+            >
+              {item.name}
+            </Link>
+          ))}
 
           <hr className="border-gray-700" />
 
-          {/* AUTH */}
+          {/* AUTH (MOBILE SAME LOGIC) */}
           {!user ? (
             <div className="flex flex-col gap-2 text-sm">
               <Link href="/signup" onClick={() => setOpen(false)}>
@@ -113,6 +153,7 @@ const Navbar = () => {
               <Button size="sm" onClick={handleSignOut}>
                 Sign Out
               </Button>
+
             </div>
           )}
 
