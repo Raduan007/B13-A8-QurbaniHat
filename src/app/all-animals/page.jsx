@@ -1,54 +1,13 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import AnimalCard from "@/components/AnimalCard";
 import PageLoader from "@/components/PageLoader";
-import { authClient } from "@/lib/auth-client";
 
-const AllAnimalsPage = () => {
-  const router = useRouter();
-  const { data: session, isPending } = authClient.useSession();
-  const [animals, setAnimals] = useState([]);
-  const [loading, setLoading] = useState(true);
+const AllAnimalsPage = async () => {
+  const res = await fetch(
+    "https://b13-a8-qurbani-hat.vercel.app/data.json",
+    { cache: "no-store" }
+  );
 
-  useEffect(() => {
-    // Redirect to signin if not authenticated
-    if (!isPending && !session) {
-      router.push("/signin");
-      return;
-    }
-
-    // Fetch animals only if authenticated
-    if (session) {
-      fetchAnimals();
-    }
-  }, [session, isPending, router]);
-
-  const fetchAnimals = async () => {
-    try {
-      const res = await fetch(
-        "https://b13-a8-qurbani-hat.vercel.app/data.json",
-        { cache: "no-store" }
-      );
-      const data = await res.json();
-      setAnimals(data);
-    } catch (error) {
-      console.error("Failed to fetch animals:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Show loading while checking authentication
-  if (isPending || loading) {
-    return <PageLoader />;
-  }
-
-  // Don't render if not authenticated (will redirect)
-  if (!session) {
-    return null;
-  }
+  const animals = await res.json();
 
   return (
     <PageLoader>
