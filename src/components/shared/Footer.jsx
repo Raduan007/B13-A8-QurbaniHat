@@ -4,81 +4,96 @@ import { IoLogoInstagram } from "react-icons/io";
 import Image from "next/image";
 import { FaLocationPin } from "react-icons/fa6";
 
-
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-gray-900 to-gray-700 text-white pl-15 pr-15 py-15 mt-10">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-5 gap-8">
+    <footer className="bg-gradient-to-r from-gray-900 to-gray-700 text-white py-10 mt-10 px-4">
+
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8 text-center md:text-left">
 
         {/* About Section */}
-        <div>
-             <Image
-                        src={"/logo.png"}
-                        alt="logo"
-                        loading="eager"
-                        width={50}
-                        height={50}
-                        className="object-cover h-auto w-auto"
-                      />
-          <h2 className="text-xl font-bold mb-3">QurbaniHat </h2>
-          <p className="text-sm opacity-70">
-            This project is about Qurbani Eid (Eid al-Adha). 
+        <div className="flex flex-col items-center md:items-start">
+          <Image
+            src="/logo.png"
+            alt="logo"
+            loading="eager"
+            width={50}
+            height={50}
+            className="object-cover"
+          />
+
+          <h2 className="text-xl font-bold mt-2">QurbaniHat</h2>
+
+          <p className="text-sm opacity-70 mt-2">
+            This project is about Qurbani Eid (Eid al-Adha).
             It shares information, traditions, and significance of the festival.
           </p>
         </div>
-        {/* Quick links */}
-        <div>
-            <h2 className="font-semibold">Quick Links</h2>
-            <div className="opacity-80">
+
+        {/* Quick Links (HIDDEN on small devices) */}
+        <div className="hidden md:block">
+          <h2 className="font-semibold mb-2">Quick Links</h2>
+          <div className="opacity-80 space-y-1">
             <p>Home</p>
             <p>All Animals</p>
             <p>My Profile</p>
             <p>Login</p>
             <p>Register</p>
-
-            </div>
+          </div>
         </div>
 
-
-        {/* Customer care*/}
-        <div className="">
-             <h2 className="font-semibold">  Customer care </h2>
-         <div className="opacity-80">
-             <p>About Us</p>
-             <p>COntact Us</p>
-             <p>Shipping & Delivery</p>
-             <p>Return Policy</p>
-             <p>FAQ</p>
-              </div>
+        {/* Customer Care (HIDDEN on small devices) */}
+        <div className="hidden md:block">
+          <h2 className="font-semibold mb-2">Customer Care</h2>
+          <div className="opacity-80 space-y-1">
+            <p>About Us</p>
+            <p>Contact Us</p>
+            <p>Shipping & Delivery</p>
+            <p>Return Policy</p>
+            <p>FAQ</p>
+          </div>
         </div>
 
-     
         {/* Contact Info */}
-        <div>
+        <div className="flex flex-col items-center md:items-start">
           <h2 className="text-xl font-bold mb-3">Contact</h2>
-            <div className="opacity-80">
-            <p className="flex items-center gap-2 text-sm pb-2">
-            <FaLocationPin /> Sahabajpur, kalikair, <br /> gazipur
+
+          <div className="opacity-80 space-y-2 text-sm">
+            <p className="flex items-center justify-center md:justify-start gap-2">
+              <FaLocationPin /> Sahabajpur, Kalikair, Gazipur
             </p>
-                <p className="flex items-center gap-2 text-sm">
-            <FaPhone /> +880 1609247375
-             </p>
-          <p className="flex items-center gap-2 text-sm mt-2">
-            <FaEnvelope /> raduanhossen517@gmail.com
-          </p>
+
+            <p className="flex items-center justify-center md:justify-start gap-2">
+              <FaPhone /> +880 1609247375
+            </p>
+
+            <p className="flex items-center justify-center md:justify-start gap-2">
+              <FaEnvelope /> raduanhossen517@gmail.com
+            </p>
           </div>
         </div>
 
         {/* Social Links */}
-           <div>
+        <div className="flex flex-col items-center md:items-start">
           <h2 className="text-xl font-bold mb-3">Follow Us</h2>
-         <ul className='flex gap-4 text-xl opacity-80'>
-                        <li><a href="https://www.instagram.com/"><FaFacebook/></a></li>
-                        <li><a href="https://www.facebook.com/"><IoLogoInstagram /></a></li>
-                        <li><a href="https://x.com/"><CiTwitter/></a></li>
-                    </ul>
-        </div>
 
+          <ul className="flex gap-4 text-xl opacity-80">
+            <li>
+              <a href="https://www.facebook.com/">
+                <FaFacebook />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/">
+                <IoLogoInstagram />
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/">
+                <CiTwitter />
+              </a>
+            </li>
+          </ul>
+        </div>
 
       </div>
 
@@ -89,4 +104,3 @@ export default function Footer() {
     </footer>
   );
 }
- 
