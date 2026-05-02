@@ -107,6 +107,16 @@ export default function SignInPage() {
           <Check />
           Sign In
         </Button>
+         {/* LOGIN LINK */}
+                <p className="text-center text-sm mt-6">
+                  Already have an account?{" "}
+                  <Link
+                    href="/signup"
+                    className="text-blue-600 font-semibold hover:underline"
+                  >
+                   SignUp
+                  </Link>
+                </p>
 
       </Form>
     </Card>

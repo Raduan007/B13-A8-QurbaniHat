@@ -62,7 +62,7 @@ const AnimalDetailsCard = async ({ params }) => {
           {/* PRICE */}
           <div className="pt-4">
             <span className="text-3xl font-bold text-green-600">
-              ৳ {animal.price}
+              $ {animal.price}
             </span>
           </div>
 

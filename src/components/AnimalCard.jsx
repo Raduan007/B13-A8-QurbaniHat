@@ -4,35 +4,46 @@ import Link from "next/link";
 
 const AnimalCard = ({ animal }) => {
   return (
-    <Card className="p-3">
-      <div className="border rounded-lg p-4 shadow-sm space-y-3">
-  <div className="overflow-hidden rounded-lg relative w-full aspect-square">
-    <Image
-      src={animal.image}
-       fill = {true}
-       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 30vw "
-      alt={animal.type}
-      className="w-full h-48 rounded-lg object-cover"/>
-     
-     <Chip className="absolute right-2 top-2 px-3">{animal.category}</Chip>
+    <Card className="p-3 border rounded-lg shadow-sm space-y-2  ">
 
-  </div>
+      {/* IMAGE */}
+      <div className="relative w-full aspect-square overflow-hidden rounded-lg">
 
-  <div className="flex items-center justify-between text-center">
-    <h2 className="font-bold text-lg">{animal.name}</h2>
-    <p className="text-gray-600">${animal.price}</p>
-  </div>
+        <Image
+          src={animal.image}
+          alt={animal.name}
+          fill
+          className="transition-all duration-300 hover:scale-105 active:scale-95"
+          sizes="(max-width: 768px) 100vw, 30vw"
+        />
 
-  <p className="text-sm text-gray-500">{animal.description}</p>
+        <Chip className="absolute right-2 top-2 px-3">
+          {animal.category}
+        </Chip>
 
-  <div className="text-center pt-2">
-    <Link
-       href={`/all-animals/${animal.id}`}
-      className="inline-block px-4 py-2 bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-md transition-all duration-300 hover:scale-105 active:scale-95">
-       View Details
-    </Link>
-    </div>
-</div>
+      </div>
+
+      {/* NAME + PRICE */}
+      <div className="flex items-center justify-between">
+        <h2 className="font-bold text-lg">{animal.name}</h2>
+        <p className="text-gray-600">${animal.price}</p>
+      </div>
+
+      {/* DESCRIPTION */}
+      <p className="text-sm text-gray-500">
+        {animal.description}
+      </p>
+
+      {/* BUTTON */}
+      <div className="text-center pt-2">
+        <Link
+          href={`/all-animals/${animal.id}`}
+          className="inline-block px-4 py-2 bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-md transition-all duration-300 hover:scale-105 active:scale-95"
+        >
+          View Details
+        </Link>
+      </div>
+
     </Card>
   );
 };

@@ -6,8 +6,8 @@ const res = await fetch('https://b13-a8-qurbani-hat.vercel.app/data.json',
     const animals = await res.json();
    
     return (
-            <div>
-            <div className="text-center ">
+            <div className="">
+            <div className="text-center  ">
                 <h1 className="text-4xl md:text-6xl font-bold text-yellow-500 ">
             Find Your Perfect Animal
              </h1>
@@ -15,7 +15,7 @@ const res = await fetch('https://b13-a8-qurbani-hat.vercel.app/data.json',
                Browse healthy, verified animals for Qurbani and farming needs.
            </p>
             </div>
-            <div className="grid grid-cols-4">
+               <div class="">
                 {animals.map (animal => <AnimalCard key={animal.id} animal ={animal} /> )}
             </div>
         </div>

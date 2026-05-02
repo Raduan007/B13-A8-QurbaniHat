@@ -1,45 +1,77 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
-
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathname = usePathname();
+
   return (
-    <div className="  mx-auto w-full  text-white bg-gradient-to-r from-gray-900 to-gray-700">
-      <nav className=" flex justify-between items-center  py-3 px-3 ">
-        <div className="flex gap-2 items-center">
+    <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700">
+
+      <nav className="flex justify-between items-center py-3 px-3">
+
+        {/* LOGO + TITLE (hidden on small devices) */}
+        <div className="hidden md:block gap-2 items-center">
           <Image
             src={"/logo.png"}
             alt="logo"
-            loading="eager"
             width={50}
             height={50}
-            className="object-cover h-auto w-auto"
           />
-          <h3 className="">
-           <span className="text-4xl"> QurbaniHat <span className="text-red-400">Livestock</span> </span><br /> Booking Platform
-            </h3>
+
+          <h3>
+            <span className="text-2xl lg:text-4xl">
+              QurbaniHat{" "}
+              <span className="text-red-400">Livestock</span>
+            </span>
+            <br />
+            Booking Platform
+          </h3>
         </div>
 
-        <ul className="flex items-center gap-5 text-sm">
+        {/* NAV LINKS */}
+        <ul className="flex items-center gap-3 md:gap-5 text-sm">
+
           <li>
-            <Link href={"/"}>Home</Link>
+            <Link
+              href="/"
+              className={`px-3 py-2 rounded-md transition duration-300 active:scale-95
+              ${pathname === "/"
+                ? "bg-gradient-to-r from-gray-900 to-gray-700 text-white"
+                : "text-black hover:bg-gradient-to-r hover:from-gray-900 hover:to-gray-700 hover:text-white"}`}
+            >
+              Home
+            </Link>
           </li>
+
           <li>
-            <Link href={"/all-animals"}>All  Animals</Link>
+            <Link
+              href="/all-animals"
+              className={`px-3 py-2 rounded-md transition duration-300 active:scale-95
+              ${pathname === "/all-animals"
+                ? "bg-gradient-to-r from-gray-900 to-gray-700 text-white"
+                : "text-black hover:bg-gradient-to-r hover:from-gray-900 hover:to-gray-700 hover:text-white"}`}
+            >
+              All Animals
+            </Link>
           </li>
+
         </ul>
 
-        <div className="flex ">
-          <ul className="flex items-center  text-sm gap-4">
+        {/* AUTH */}
+        <div className="hidden sm:block">
+          <ul className="flex items-center text-sm gap-4">
             <li>
-              <Link href={"/signup"}>SignUp</Link>
+              <Link href="/signup">SignUp</Link>
             </li>
             <li>
-              <Link href={"/signin"}>SignIn</Link>
+              <Link href="/signin">SignIn</Link>
             </li>
           </ul>
         </div>
+
       </nav>
     </div>
   );
