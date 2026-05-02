@@ -4,7 +4,6 @@ import { authClient } from "@/lib/auth-client";
 import { Avatar, Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
@@ -12,18 +11,11 @@ const Navbar = () => {
   const userData = authClient.useSession();
   const user = userData.data?.user;
 
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   const handleSignOut = async () => {
     await authClient.signOut();
   };
-
-  const navItems = [
-    { name: "Home", href: "/" },
-    { name: "All Animals", href: "/all-animals" },
-      { name: "Profile", href: "/profile" },
-  ];
 
   return (
     <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700">
@@ -41,22 +33,42 @@ const Navbar = () => {
 
         {/*  Lg hamburger */}
         <div className="hidden md:flex items-center gap-6">
+<div className="absolute left-[45%] -translate-x-1/2 flex items-center gap-5">
 
-          {/* NAV LINKS */}
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`px-3 py-2 rounded ${
-                pathname === item.href
-                  ? "bg-blue-700"
-                  : "hover:bg-gray-800"
-              }`}
-            >
-              {item.name}
-            </Link>
-          ))}
-
+  <Link
+    href="/"
+    className={`px-3 py-2 rounded transition-all duration-200 ${
+      pathname === "/"
+        ? "text-blue-700"
+        : "hover:text-blue-400"
+             }`}
+           >
+             Home
+           </Link>
+         
+           <Link
+             href="/all-animals"
+             className={`px-3 py-2 rounded transition-all duration-200 ${
+               pathname === "/all-animals"
+                 ? "text-blue-700"
+                 : "hover:text-blue-400"
+             }`}
+           >
+             All Animals
+           </Link>
+         
+           <Link
+             href="/profile"
+             className={`px-3 py-2 rounded transition-all duration-200 ${
+               pathname === "/profile"
+                 ? "text-blue-700"
+                 : "hover:text-blue-400"
+             }`}
+           >
+             Profile
+           </Link>
+         
+         </div>
           {/* Auth Lg */}
           {!user ? (
             <div className="flex gap-3 ml-4">
@@ -117,16 +129,17 @@ const Navbar = () => {
           </div>
 
           {/* NAV */}
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="px-2 py-2 hover:bg-gray-800 rounded text-sm"
-            >
-              {item.name}
-            </Link>
-          ))}
+          <Link href="/" onClick={() => setOpen(false)} className="px-2 py-2 hover:bg-gray-800 rounded text-sm">
+            Home
+          </Link>
+
+          <Link href="/all-animals" onClick={() => setOpen(false)} className="px-2 py-2 hover:bg-gray-800 rounded text-sm">
+            All Animals
+          </Link>
+
+          <Link href="/profile" onClick={() => setOpen(false)} className="px-2 py-2 hover:bg-gray-800 rounded text-sm">
+            Profile
+          </Link>
 
           <hr className="border-gray-700" />
 
