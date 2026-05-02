@@ -33,12 +33,12 @@ const Navbar = () => {
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="logo" width={45} height={45} />
           <h3 className="font-bold text-lg">
-            <span className="text-4xl">QurbaniHat</span> <span className="text-red-400 text-4xl">Livestock</span> <br />
-            Booking Platform
+            <span className="text-xl md:text-4xl">QurbaniHat</span> <span className="text-red-400 text-xl md:text-4xl">Livestock</span> <br />
+          <span className="hidden md:inline text-sm text-gray-200"> Booking Platform</span>
           </h3>
         </div>
 
-        {/* 🖥️ DESKTOP NAV (NO HAMBURGER HERE) */}
+        {/*  Lg hamburger */}
         <div className="hidden md:flex items-center gap-6">
 
           {/* NAV LINKS */}
@@ -56,7 +56,7 @@ const Navbar = () => {
             </Link>
           ))}
 
-          {/* AUTH (DESKTOP) */}
+          {/* Auth Lg */}
           {!user ? (
             <div className="flex gap-3 ml-4">
               <Link href="/signup">SignUp</Link>
@@ -64,12 +64,14 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="flex items-center gap-3 ml-4">
+            <Link href="/profile">
               <Avatar size="sm">
                 <Avatar.Image src={user?.image} />
                 <Avatar.Fallback>
                   {user?.name?.charAt(0)}
                 </Avatar.Fallback>
               </Avatar>
+             </Link>
 
               <Button size="sm" onClick={handleSignOut}>
                 Sign Out
@@ -79,7 +81,7 @@ const Navbar = () => {
 
         </div>
 
-        {/* 📱 MOBILE HAMBURGER ONLY */}
+        {/* moblie Ham */}
         <button
           className="md:hidden"
           onClick={() => setOpen(true)}
@@ -89,7 +91,7 @@ const Navbar = () => {
 
       </nav>
 
-      {/* BACKDROP */}
+      {/* BackDrop */}
       {open && (
         <div
           onClick={() => setOpen(false)}
@@ -97,7 +99,7 @@ const Navbar = () => {
         />
       )}
 
-      {/* 📱 MOBILE DRAWER (30% RIGHT SIDE) */}
+      {/* Mobile Drawer */}
       <div
         className={`fixed top-4 right-4 w-[30%] bg-gray-900 rounded-lg z-50 transition-all duration-300 ${
           open ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
@@ -127,7 +129,7 @@ const Navbar = () => {
 
           <hr className="border-gray-700" />
 
-          {/* AUTH (MOBILE SAME LOGIC) */}
+               {/* Auth Lg L) */}
           {!user ? (
             <div className="flex flex-col gap-2 text-sm">
               <Link href="/signup" onClick={() => setOpen(false)}>
@@ -140,16 +142,19 @@ const Navbar = () => {
           ) : (
             <div className="flex flex-col gap-3">
 
-              <div className="flex items-center gap-2">
-                <Avatar size="sm">
-                  <Avatar.Image src={user?.image} />
-                  <Avatar.Fallback>
-                    {user?.name?.charAt(0)}
-                  </Avatar.Fallback>
-                </Avatar>
-                <span className="text-sm">{user?.name}</span>
-              </div>
-
+             <Link
+          href="/profile"
+          onClick={() => setOpen(false)}
+          className="flex items-center gap-2"
+          >
+            <Avatar size="sm">
+              <Avatar.Image src={user?.image} />
+              <Avatar.Fallback>
+                {user?.name?.charAt(0)}
+              </Avatar.Fallback>
+            </Avatar>
+            <span className="text-sm">{user?.name}</span>
+          </Link>
               <Button size="sm" onClick={handleSignOut}>
                 Sign Out
               </Button>
