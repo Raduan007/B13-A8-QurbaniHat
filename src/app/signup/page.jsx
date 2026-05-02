@@ -36,12 +36,12 @@ export default function SignUpPage() {
       password,
     });
 
-      // if (error) {
-      //   toast.error(error.message || "Signup failed ");
-      //   return;
-      // }
+      if (error) {
+        toast.error(error.message || "Signup failed ");
+        return;
+      }
 
-      // toast.success("Account created successfully ");
+      toast.success("Account created successfully ");
 
       setTimeout(() => {
         router.push("/");
