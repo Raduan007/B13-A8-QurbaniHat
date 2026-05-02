@@ -1,13 +1,25 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
+import { Avatar, Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const Navbar = () => {
+  
+  const userData = authClient.useSession();
+  const user = userData.data?.user
+   console.log(user);
+
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
+  const handleSignOut = async () =>{
+    await authClient.signOut();
+
+  }
 
   return (
     <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700 relative">
@@ -56,17 +68,32 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* DESKTOP AUTH */}
+       
         <div className="hidden md:flex items-center gap-4 text-sm">
-          <Link href="/signup" className="hover:text-gray-300">
-            SignUp
-          </Link>
-          <Link href="/signin" className="hover:text-gray-300">
-            SignIn
-          </Link>
+  {!user && (    <ul>
+            <li>
+            <Link href="/signup" className="hover:text-gray-300"> SignUp </Link>
+          </li>
+         <li>
+           <Link href="/signin" className="hover:text-gray-300"> SignIn  </Link>
+         </li>
+         </ul> 
+        )}
         </div>
+        {user && 
+          <div className="flex gap-3">
+            <Avatar size="sm">
+        <Avatar.Image alt="John Doe"
+         src={user?.image}
+         referrerPolicy="no-referrer"
+          />
+        <Avatar.Fallback>{user?.name.charAt(0)} </Avatar.Fallback>
+      </Avatar>
+      <Button onClick={handleSignOut} variant="danger" size="sm">Sign Out</Button>
+          </div>
+         }
 
-        {/* MOBILE PROFILE DROPDOWN */}
+        {/* Mobile profile */}
         <div className="md:hidden relative">
           <button onClick={() => setOpen(!open)}>
             <Image
