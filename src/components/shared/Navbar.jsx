@@ -6,11 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const userData = authClient.useSession();
   const user = userData.data?.user;
 
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   const handleSignOut = async () => {
@@ -32,20 +34,42 @@ const Navbar = () => {
         </div>
 
         {/*  Lg hamburger */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center justify-between w-full px-10">
 
-          <div className="flex items-center gap-5 ml-10">
-            <Link href="/" className="px-3 py-2 rounded hover:bg-gray-800">
+          {/* NAV */}
+          <div className="flex items-center gap-5 mx-auto">
+
+            <Link
+              href="/"
+              className={`px-3 py-2 rounded transition-all duration-200 ${
+                pathname === "/" ? "bg-blue-700 text-white" : "hover:text-blue-400"
+              }`}
+            >
               Home
             </Link>
 
-            <Link href="/all-animals" className="px-3 py-2 rounded hover:bg-gray-800">
+            <Link
+              href="/all-animals"
+              className={`px-3 py-2 rounded transition-all duration-200 ${
+                pathname === "/all-animals"
+                  ? "bg-blue-700 text-white"
+                  : "hover:text-blue-400"
+              }`}
+            >
               All Animals
             </Link>
 
-            <Link href="/profile" className="px-3 py-2 rounded hover:bg-gray-800">
+            <Link
+              href="/profile"
+              className={`px-3 py-2 rounded transition-all duration-200 ${
+                pathname === "/profile"
+                  ? "bg-blue-700 text-white"
+                  : "hover:text-blue-400"
+              }`}
+            >
               Profile
             </Link>
+
           </div>
 
           {/* Auth Lg */}
@@ -56,14 +80,14 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="flex items-center gap-3 ml-4">
-            <Link href="/profile">
-              <Avatar size="sm">
-                <Avatar.Image src={user?.image} />
-                <Avatar.Fallback>
-                  {user?.name?.charAt(0)}
-                </Avatar.Fallback>
-              </Avatar>
-             </Link>
+              <Link href="/profile">
+                <Avatar size="sm">
+                  <Avatar.Image src={user?.image} />
+                  <Avatar.Fallback>
+                    {user?.name?.charAt(0)}
+                  </Avatar.Fallback>
+                </Avatar>
+              </Link>
 
               <Button size="sm" onClick={handleSignOut}>
                 Sign Out
@@ -122,7 +146,7 @@ const Navbar = () => {
 
           <hr className="border-gray-700" />
 
-               {/* Auth Lg L) */}
+          {/* Auth Lg L) */}
           {!user ? (
             <div className="flex flex-col gap-2 text-sm">
               <Link href="/signup" onClick={() => setOpen(false)}>
@@ -135,19 +159,20 @@ const Navbar = () => {
           ) : (
             <div className="flex flex-col gap-3">
 
-             <Link
-          href="/profile"
-          onClick={() => setOpen(false)}
-          className="flex items-center gap-2"
-          >
-            <Avatar size="sm">
-              <Avatar.Image src={user?.image} />
-              <Avatar.Fallback>
-                {user?.name?.charAt(0)}
-              </Avatar.Fallback>
-            </Avatar>
-            <span className="text-sm">{user?.name}</span>
-          </Link>
+              <Link
+                href="/profile"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-2"
+              >
+                <Avatar size="sm">
+                  <Avatar.Image src={user?.image} />
+                  <Avatar.Fallback>
+                    {user?.name?.charAt(0)}
+                  </Avatar.Fallback>
+                </Avatar>
+                <span className="text-sm">{user?.name}</span>
+              </Link>
+
               <Button size="sm" onClick={handleSignOut}>
                 Sign Out
               </Button>
