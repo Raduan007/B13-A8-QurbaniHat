@@ -8,7 +8,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700">
+    <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700 mb-5">
 
       <nav className="flex justify-between items-center py-3 px-3">
 
