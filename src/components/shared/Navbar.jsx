@@ -32,8 +32,8 @@ const Navbar = () => {
         {/* LOGO */}
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="logo" width={45} height={45} />
-          <h3 className="font-bold text-4xl">
-            QurbaniHat <span className="text-red-400">Livestock</span>
+          <h3 className="font-bold text-lg">
+            <span className="text-4xl">QurbaniHat</span> <span className="text-red-400 text-4xl">Livestock</span> <br />
             Booking Platform
           </h3>
         </div>
