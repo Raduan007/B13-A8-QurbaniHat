@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700 mb-5">
 
-      <nav className="flex justify-between items-center py-3 px-3">
+      <nav className="flex justify-between items-center py-1 px-3">
 
         {/* LOGO + TITLE (hidden on small devices) */}
         <div className="hidden md:block gap-2 items-center">
@@ -39,8 +39,8 @@ const Navbar = () => {
               href="/"
               className={`px-3 py-2 rounded-md transition duration-300 active:scale-95
               ${pathname === "/"
-                ? "bg-gradient-to-r from-gray-900 to-gray-700 text-white"
-                : "text-black hover:bg-gradient-to-r hover:from-gray-900 hover:to-gray-700 hover:text-white"}`}
+                ? "bg-gradient-to-r from-blue-900 to-blue-700 text-white"
+                : "text-white hover:bg-gradient-to-r hover:from-gray-900 hover:to-gray-700 hover:text-white"}`}
             >
               Home
             </Link>
@@ -51,8 +51,8 @@ const Navbar = () => {
               href="/all-animals"
               className={`px-3 py-2 rounded-md transition duration-300 active:scale-95
               ${pathname === "/all-animals"
-                ? "bg-gradient-to-r from-gray-900 to-gray-700 text-white"
-                : "text-black hover:bg-gradient-to-r hover:from-gray-900 hover:to-gray-700 hover:text-white"}`}
+                ? "bg-gradient-to-r from-blue-900 to-blue-700 text-white"
+                : "text-white hover:bg-gradient-to-r hover:from-gray-900 hover:to-gray-700 hover:text-white"}`}
             >
               All Animals
             </Link>
