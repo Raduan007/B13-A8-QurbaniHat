@@ -11,16 +11,16 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700 mb-5">
+    <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700 mb-5 relative">
       
       <nav className="flex justify-between items-center py-2 px-4">
 
-        {/* LEFT: LOGO + TITLE */}
+        {/* LOGO */}
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="logo" width={45} height={45} />
 
           <h3 className="text-sm md:text-base leading-tight">
-            <span className="font-bold">
+            <span className="font-bold text-2xl md:text-4xl">
               QurbaniHat <span className="text-red-400">Livestock</span>
             </span>
             <br />
@@ -36,9 +36,7 @@ const Navbar = () => {
             <Link
               href="/"
               className={`px-3 py-2 rounded-md transition ${
-                pathname === "/"
-                  ? "bg-blue-700"
-                  : "hover:bg-gray-800"
+                pathname === "/" ? "bg-blue-700" : "hover:bg-gray-800"
               }`}
             >
               Home
@@ -69,7 +67,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* HAMBURGER */}
+        {/* Hamburger */}
         <button
           className="md:hidden text-2xl"
           onClick={() => setOpen(!open)}
@@ -78,44 +76,53 @@ const Navbar = () => {
         </button>
       </nav>
 
-      {/* MOBILE MENU */}
+     
       {open && (
-        <div className="md:hidden bg-gray-800 px-4 pb-4 space-y-3">
-          
-          <Link
-            href="/"
-            onClick={() => setOpen(false)}
-            className="block py-2"
-          >
-            Home
-          </Link>
+        <>
 
-          <Link
-            href="/all-animals"
+          <div
             onClick={() => setOpen(false)}
-            className="block py-2"
-          >
-            All Animals
-          </Link>
+            className="fixed inset-0 bg-black/40 z-40"
+          />
 
-          <hr className="border-gray-600" />
+          <div className="fixed top-0 right-0 h-full w-1/4 min-w-[180px] bg-gray-800 px-4 py-6 space-y-4 z-50 shadow-lg">
+            
+            <Link
+              href="/"
+              onClick={() => setOpen(false)}
+              className="block py-2"
+            >
+              Home
+            </Link>
 
-          <Link
-            href="/signup"
-            onClick={() => setOpen(false)}
-            className="block py-2"
-          >
-            SignUp
-          </Link>
+            <Link
+              href="/all-animals"
+              onClick={() => setOpen(false)}
+              className="block py-2"
+            >
+              All Animals
+            </Link>
 
-          <Link
-            href="/signin"
-            onClick={() => setOpen(false)}
-            className="block py-2"
-          >
-            SignIn
-          </Link>
-        </div>
+            <hr className="border-gray-600" />
+
+            <Link
+              href="/signup"
+              onClick={() => setOpen(false)}
+              className="block py-2"
+            >
+              SignUp
+            </Link>
+
+            <Link
+              href="/signin"
+              onClick={() => setOpen(false)}
+              className="block py-2"
+            >
+              SignIn
+            </Link>
+
+          </div>
+        </>
       )}
     </div>
   );

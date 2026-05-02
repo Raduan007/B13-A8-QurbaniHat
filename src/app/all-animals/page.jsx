@@ -15,7 +15,7 @@ const res = await fetch('https://b13-a8-qurbani-hat.vercel.app/data.json',
                Browse healthy, verified animals for Qurbani and farming needs.
            </p>
             </div>
-               <div class="">
+               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
                 {animals.map (animal => <AnimalCard key={animal.id} animal ={animal} /> )}
             </div>
         </div>
