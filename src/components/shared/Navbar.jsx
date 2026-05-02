@@ -27,9 +27,9 @@ const Navbar = () => {
   return (
     <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700 relative">
 
+      {/* NAVBAR */}
       <nav className="flex justify-between items-center px-4 py-2">
 
-        {/* LOGO */}
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="logo" width={45} height={45} />
           <h3 className="font-bold text-xl">
@@ -37,54 +37,47 @@ const Navbar = () => {
           </h3>
         </div>
 
-        {/* HAMBURGER */}
         <button className="md:hidden" onClick={() => setOpen(true)}>
           <FiMenu size={22} />
         </button>
 
-        {/* DESKTOP NAV */}
-        <div className="hidden md:flex gap-4">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href}>
-              {item.name}
-            </Link>
-          ))}
-        </div>
       </nav>
 
       {/* BACKDROP */}
       {open && (
         <div
           onClick={() => setOpen(false)}
-          className="fixed inset-0 bg-black/50 z-40"
+          className="fixed inset-0 bg-black/40 z-40"
         />
       )}
 
-      {/* DRAWER (25% RIGHT SIDE) */}
+      {/* COMPACT DRAWER (30% WIDTH ONLY, AUTO HEIGHT) */}
       <div
-        className={`fixed top-0 right-0 h-full w-[25%] bg-gray-900 z-50 transform transition-transform duration-300 ${
-          open ? "translate-x-0" : "translate-x-full"
+        className={`fixed top-4 right-4 w-[30%] bg-gray-900 rounded-lg shadow-2xl z-50 transform transition-all duration-300 ${
+          open ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         }`}
       >
 
-        <div className="p-4 flex flex-col gap-4">
+        <div className="p-4 flex flex-col gap-3">
 
-          {/* CLOSE */}
+          {/* CLOSE BUTTON */}
           <div className="flex justify-end">
             <button onClick={() => setOpen(false)}>
-              <FiX size={22} />
+              <FiX size={20} />
             </button>
           </div>
 
-          {/* NAV ITEMS */}
-          <div className="flex flex-col gap-3">
+          {/* NAV */}
+          <div className="flex flex-col gap-2">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className={`px-2 py-2 rounded ${
-                  pathname === item.href ? "bg-blue-700" : "hover:bg-gray-800"
+                className={`px-2 py-2 rounded text-sm ${
+                  pathname === item.href
+                    ? "bg-blue-700"
+                    : "hover:bg-gray-800"
                 }`}
               >
                 {item.name}
@@ -96,7 +89,7 @@ const Navbar = () => {
 
           {/* AUTH */}
           {!user ? (
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 text-sm">
               <Link href="/signup" onClick={() => setOpen(false)}>
                 SignUp
               </Link>
@@ -107,7 +100,6 @@ const Navbar = () => {
           ) : (
             <div className="flex flex-col gap-3">
 
-              {/* Avatar */}
               <div className="flex items-center gap-2">
                 <Avatar size="sm">
                   <Avatar.Image src={user?.image} />
@@ -118,7 +110,6 @@ const Navbar = () => {
                 <span className="text-sm">{user?.name}</span>
               </div>
 
-              {/* Sign out below avatar */}
               <Button size="sm" onClick={handleSignOut}>
                 Sign Out
               </Button>
@@ -127,6 +118,7 @@ const Navbar = () => {
 
         </div>
       </div>
+
     </div>
   );
 };
