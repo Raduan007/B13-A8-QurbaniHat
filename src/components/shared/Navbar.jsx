@@ -69,8 +69,9 @@ const Navbar = () => {
         </ul>
 
        
-        <div className="hidden md:flex items-center gap-4 text-sm">
-  {!user && (    <ul>
+        <div >
+  {!user && (   
+     <ul className="hidden md:flex items-center gap-4 text-sm">
             <li>
             <Link href="/signup" className="hover:text-gray-300"> SignUp </Link>
           </li>
