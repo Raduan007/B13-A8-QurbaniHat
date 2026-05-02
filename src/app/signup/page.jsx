@@ -36,12 +36,12 @@ export default function SignUpPage() {
       password,
     });
 
-      if (error) {
-        toast.error(error.message || "Signup failed ");
-        return;
-      }
+      // if (error) {
+      //   toast.error(error.message || "Signup failed ");
+      //   return;
+      // }
 
-      toast.success("Account created successfully ");
+      // toast.success("Account created successfully ");
 
       setTimeout(() => {
         router.push("/");
@@ -62,14 +62,14 @@ export default function SignUpPage() {
       <Form className="w-196 mx-auto" onSubmit={onSubmit}>
         <div className="space-y-5">
           <TextField isRequired name="name" type="text">
-            <Label>Name</Label>
+           Name
             <Input name="name" placeholder="Enter your name" />
             <FieldError />
           </TextField>
         </div>
 
         <TextField isRequired name="image" type="text">
-          <Label>Image URL</Label>
+          Image URL
           <Input name="image" placeholder="Image URL" />
           <FieldError />
         </TextField>
@@ -85,7 +85,7 @@ export default function SignUpPage() {
             return null;
           }}
         >
-          <Label>Email</Label>
+          Email
           <Input name="email" placeholder="john@example.com" />
           <FieldError />
         </TextField>
@@ -107,7 +107,7 @@ export default function SignUpPage() {
             return null;
           }}
         >
-          <Label>Password</Label>
+         Password
           <Input name="password" placeholder="Enter your password" />
           <Description>
             Must be at least 8 characters with 1 uppercase and 1 number
@@ -120,7 +120,7 @@ export default function SignUpPage() {
           type="submit"
           className="w-full mt-3 py-4 text-lg bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-xl"
         >
-          <Check />
+        
           Sign Up
         </Button>
 

@@ -37,12 +37,12 @@ export default function SignInPage() {
       })
 
       console.log({ data, error });
-       if (error) {
-            toast.error(error.message || "Signup failed ");
-            return;
-          }
+      //  if (error) {
+      //       toast.error(error.message || "Signup failed ");
+      //       return;
+      //     }
       
-          toast.success("Account created successfully ");
+      //     toast.success("Account created successfully ");
       
 
       
@@ -69,7 +69,7 @@ export default function SignInPage() {
             return null;
           }}
         >
-          <Label>Email</Label>
+          Email
           <Input name="email" placeholder="john@example.com" />
           <FieldError />
         </TextField>
@@ -91,7 +91,7 @@ export default function SignInPage() {
             return null;
           }}
         >
-          <Label>Password</Label>
+         Password
           <Input name="password" placeholder="Enter your password" />
           <Description>
             Must be at least 8 characters with 1 uppercase and 1 number
@@ -104,7 +104,7 @@ export default function SignInPage() {
           type="submit"
           className="w-full mt-3 py-4 text-lg bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-xl"
         >
-          <Check />
+        
           Sign In
         </Button>
          {/* LOGIN LINK */}
