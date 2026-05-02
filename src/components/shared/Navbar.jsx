@@ -121,14 +121,14 @@ const Navbar = () => {
 
         <div className="p-4 flex flex-col gap-3">
 
-          {/* CLOSE */}
+          {/* Close */}
           <div className="flex justify-end">
             <button onClick={() => setOpen(false)}>
               <FiX size={20} />
             </button>
           </div>
 
-          {/* NAV */}
+          {/* Nav */}
           <Link href="/" onClick={() => setOpen(false)} className="px-2 py-2 hover:bg-gray-800 rounded text-sm">
             Home
           </Link>
