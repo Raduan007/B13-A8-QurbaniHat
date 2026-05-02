@@ -4,14 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { HiMenu, HiX } from "react-icons/hi";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700 mb-5 relative">
+    <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700 relative">
       
       <nav className="flex justify-between items-center py-2 px-4">
 
@@ -30,7 +29,7 @@ const Navbar = () => {
           </h3>
         </div>
 
-     
+        {/* DESKTOP MENU */}
         <ul className="hidden md:flex items-center gap-5 text-sm">
           <li>
             <Link
@@ -57,6 +56,7 @@ const Navbar = () => {
           </li>
         </ul>
 
+        {/* DESKTOP AUTH */}
         <div className="hidden md:flex items-center gap-4 text-sm">
           <Link href="/signup" className="hover:text-gray-300">
             SignUp
@@ -66,64 +66,69 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Hamburger */}
-        <button
-          className="md:hidden text-2xl"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <HiX /> : <HiMenu />}
-        </button>
+        {/* MOBILE PROFILE DROPDOWN */}
+        <div className="md:hidden relative">
+          <button onClick={() => setOpen(!open)}>
+            <Image
+              src="/logo.png"
+              alt="profile"
+              width={35}
+              height={35}
+              className="rounded-full border"
+            />
+          </button>
+
+          {open && (
+            <>
+              {/* overlay */}
+              <div
+                onClick={() => setOpen(false)}
+                className="fixed inset-0 z-40"
+              />
+
+              {/* dropdown */}
+              <div className="absolute right-0 mt-2 w-40 bg-gray-800 rounded-lg shadow-lg py-3 space-y-2 z-50">
+
+                <Link
+                  href="/"
+                  onClick={() => setOpen(false)}
+                  className="block px-4 py-2 hover:bg-gray-700"
+                >
+                  Home
+                </Link>
+
+                <Link
+                  href="/all-animals"
+                  onClick={() => setOpen(false)}
+                  className="block px-4 py-2 hover:bg-gray-700"
+                >
+                  All Animals
+                </Link>
+
+                <hr className="border-gray-600" />
+
+                <Link
+                  href="/signup"
+                  onClick={() => setOpen(false)}
+                  className="block px-4 py-2 hover:bg-gray-700"
+                >
+                  SignUp
+                </Link>
+
+                <Link
+                  href="/signin"
+                  onClick={() => setOpen(false)}
+                  className="block px-4 py-2 hover:bg-gray-700"
+                >
+                  SignIn
+                </Link>
+
+              </div>
+            </>
+          )}
+        </div>
+
       </nav>
-
-     
-    {open && (
-  <>
-    {/* overlay */}
-    <div
-      onClick={() => setOpen(false)}
-      className="fixed inset-0 bg-black/40 z-40"
-    />
-
-    {/* sidebar menu */}
-    <div className="fixed top-0 right-0 h-full w-64 bg-gray-800 px-5 py-6 space-y-4 z-50 shadow-xl">
-
-      <Link
-        href="/"
-        onClick={() => setOpen(false)}
-        className="block py-2 hover:text-gray-300"
-      >
-        Home
-      </Link>
-
-      <Link
-        href="/all-animals"
-        onClick={() => setOpen(false)}
-        className="block py-2 hover:text-gray-300"
-      >
-        All Animals
-      </Link>
-
-      <hr className="border-gray-600" />
-
-      <Link
-        href="/signup"
-        onClick={() => setOpen(false)}
-        className="block py-2 hover:text-gray-300"
-      >
-        SignUp
-      </Link>
-
-      <Link
-        href="/signin"
-        onClick={() => setOpen(false)}
-        className="block py-2"
-            >
-              SignIn
-            </Link>
-
-          </div>
-        </>
-      )}
     </div>
   );
 };
