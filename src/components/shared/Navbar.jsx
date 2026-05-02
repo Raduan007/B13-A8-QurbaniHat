@@ -30,7 +30,7 @@ const Navbar = () => {
           </h3>
         </div>
 
-        {/* DESKTOP MENU */}
+     
         <ul className="hidden md:flex items-center gap-5 text-sm">
           <li>
             <Link
@@ -57,7 +57,6 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* DESKTOP AUTH */}
         <div className="hidden md:flex items-center gap-4 text-sm">
           <Link href="/signup" className="hover:text-gray-300">
             SignUp
@@ -77,46 +76,47 @@ const Navbar = () => {
       </nav>
 
      
-      {open && (
-        <>
+    {open && (
+  <>
+    {/* overlay */}
+    <div
+      onClick={() => setOpen(false)}
+      className="fixed inset-0 bg-black/40 z-40"
+    />
 
-          <div
-            onClick={() => setOpen(false)}
-            className="fixed inset-0 bg-black/40 z-40"
-          />
+    {/* sidebar menu */}
+    <div className="fixed top-0 right-0 h-full w-64 bg-gray-800 px-5 py-6 space-y-4 z-50 shadow-xl">
 
-          <div className="fixed top-0 right-0 h-full w-1/4 min-w-[180px] bg-gray-800 px-4 py-6 space-y-4 z-50 shadow-lg">
-            
-            <Link
-              href="/"
-              onClick={() => setOpen(false)}
-              className="block py-2"
-            >
-              Home
-            </Link>
+      <Link
+        href="/"
+        onClick={() => setOpen(false)}
+        className="block py-2 hover:text-gray-300"
+      >
+        Home
+      </Link>
 
-            <Link
-              href="/all-animals"
-              onClick={() => setOpen(false)}
-              className="block py-2"
-            >
-              All Animals
-            </Link>
+      <Link
+        href="/all-animals"
+        onClick={() => setOpen(false)}
+        className="block py-2 hover:text-gray-300"
+      >
+        All Animals
+      </Link>
 
-            <hr className="border-gray-600" />
+      <hr className="border-gray-600" />
 
-            <Link
-              href="/signup"
-              onClick={() => setOpen(false)}
-              className="block py-2"
-            >
-              SignUp
-            </Link>
+      <Link
+        href="/signup"
+        onClick={() => setOpen(false)}
+        className="block py-2 hover:text-gray-300"
+      >
+        SignUp
+      </Link>
 
-            <Link
-              href="/signin"
-              onClick={() => setOpen(false)}
-              className="block py-2"
+      <Link
+        href="/signin"
+        onClick={() => setOpen(false)}
+        className="block py-2"
             >
               SignIn
             </Link>

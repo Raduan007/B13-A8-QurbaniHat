@@ -1,12 +1,12 @@
 const TopBreeds = () => {
   return (
-    <div className="space-y-8 px-4 md:px-10 lg:px-20 pt8">
+    <div className="space-y-8 px-4 md:px-10 lg:px-20 pt-8">
 
       <h2 className="text-3xl md:text-4xl font-bold text-center">
         Top Breeds
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
 
         <div className="p-5 border rounded-xl shadow-sm text-center
         transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl active:scale-95">
