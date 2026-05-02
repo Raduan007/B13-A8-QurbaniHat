@@ -59,20 +59,6 @@ export default function SignInPage() {
             <div className="flex-1 h-px bg-gray-200" />
           </div>
 
-          {/* GOOGLE */}
-          <button
-            type="button"
-            className="w-full border py-3 rounded-xl flex items-center justify-center gap-3 hover:bg-gray-100 transition"
-          >
-            <img
-              src="https://www.svgrepo.com/show/475656/google-color.svg"
-              alt="google"
-              className="w-5 h-5"
-            />
-            <span className="font-medium">
-              Continue with Google
-            </span>
-          </button>
 
           {/* SIGNUP LINK */}
           <p className="text-center text-sm mt-4">

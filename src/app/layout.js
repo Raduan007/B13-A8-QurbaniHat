@@ -4,6 +4,7 @@ import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import { Toaster } from "react-hot-toast";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,23 +26,14 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-screen flex flex-col bg-gray-50 text-gray-900">
-
-        {/* NAVBAR */}
-        <Navbar />
-
-        {/* MAIN CONTENT */}
-        <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          {children}
-        </main>
-
-        {/* FOOTER */}
-        <Footer />
-
-        {/* TOAST */}
-        <Toaster position="top-center" />
-
-      </body>
+      <body className="">
+      <Navbar></Navbar>
+         <main className="max-w-7xl mx-auto">
+           {children}
+         </main>
+        <Footer></Footer>
+       <Toaster position="top-center" />
+        </body>
     </html>
   );
 }
