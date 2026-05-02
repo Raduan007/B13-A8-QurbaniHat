@@ -4,10 +4,12 @@ import { authClient } from "@/lib/auth-client";
 import { Avatar, Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
 const Navbar = () => {
+  const pathname = usePathname();
   const userData = authClient.useSession();
   const user = userData.data?.user;
 
