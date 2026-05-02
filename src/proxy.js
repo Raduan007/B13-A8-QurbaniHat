@@ -1,19 +1,31 @@
-import { NextResponse } from 'next/server'
-import { auth } from './src/lib/auth'
-import { headers } from 'next/headers'
+import { NextResponse } from "next/server";
 
-// This function can be marked `async` if using `await` inside
-export async function proxy(request) {
-  const session = await auth.api.getSession({
-    headers: await headers()
-  })
+const protectedRoutes = ["/profile", "/all-animals/"];
 
-  if (!session) {
-    return NextResponse.redirect(new URL('/signin', request.url))
+export function proxy(request) {
+  const { pathname } = request.nextUrl;
+
+  const isProtected = protectedRoutes.some((route) =>
+    pathname.startsWith(route)
+  );
+
+  if (!isProtected) {
+    return NextResponse.next();
   }
 
-  return NextResponse.next()
+  const sessionCookie =
+    request.cookies.get("better-auth.session_token") ||
+    request.cookies.get("__Secure-better-auth.session_token");
+
+  if (!sessionCookie) {
+    const signInUrl = new URL("/signin", request.url);
+    signInUrl.searchParams.set("callbackUrl", pathname);
+    return NextResponse.redirect(signInUrl);
+  }
+
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/profile', '/all-animals/:path*']}
+  matcher: ["/profile", "/all-animals/:path+"],
+};
