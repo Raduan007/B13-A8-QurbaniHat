@@ -1,124 +1,92 @@
 "use client";
 
-import { authClient } from "@/lib/auth-client";
-import { Check } from "@gravity-ui/icons";
-import {
-  Button,
-  Card,
-  Description,
-  FieldError,
-  Form,
-  Input,  
-  Label,
-  TextField,
-} from "@heroui/react";
-
-
-import Image from "next/image";
+import { Button, Card, Form, Input, TextField, FieldError } from "@heroui/react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import toast from "react-hot-toast";
 
 export default function SignInPage() {
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
-
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    
-
-
-        const { data, error } = await authClient.signIn.email({
-       
-        email,
-        password,
-        callbackURL:'/'
-      })
-
-      console.log({ data, error });
-       if (error) {
-            toast.error(error.message || "Signup failed ");
-            return;
-          }
-      
-          toast.success("Account created successfully ");
-      
-
-      
-  };
-
   return (
-    <Card className="border mx-auto w-125 py-10 ">
-      <h1 className="text-center text-4xl font-bold text-blue-600">Sign In</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
 
-      {/* FORM START */}
-      <Form className="w-196 mx-auto " onSubmit={onSubmit}>
-        
-       
+      <Card className="w-full max-w-md p-8 rounded-2xl shadow-xl border">
 
+        {/* TITLE */}
+        <h1 className="text-center text-3xl font-bold text-blue-600 mb-2">
+          Welcome Back
+        </h1>
 
-        <TextField
-          isRequired
-          name="email"
-          type="email"
-          validate={(value) => {
-            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
-              return "Please enter a valid email address";
-            }
-            return null;
-          }}
-        >
-          Email
-          <Input name="email" placeholder="john@example.com" />
-          <FieldError />
-        </TextField>
+        <p className="text-center text-gray-500 text-sm mb-6">
+          Sign in to continue
+        </p>
 
-        <TextField
-          isRequired
-          name="password"
-          type="password"
-          validate={(value) => {
-            if (value.length < 8) {
-              return "Password must be at least 8 characters";
-            }
-            if (!/[A-Z]/.test(value)) {
-              return "Password must contain at least one uppercase letter";
-            }
-            if (!/[0-9]/.test(value)) {
-              return "Password must contain at least one number";
-            }
-            return null;
-          }}
-        >
-         Password
-          <Input name="password" placeholder="Enter your password" />
-          <Description>
-            Must be at least 8 characters with 1 uppercase and 1 number
-          </Description>
-          <FieldError />
-        </TextField>
+        {/* FORM */}
+        <Form className="space-y-5">
 
-        {/* BUTTON */}
-        <Button
-          type="submit"
-          className="w-full mt-3 py-4 text-lg bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-xl"
-        >
-        
-          Sign In
-        </Button>
-         {/* LOGIN LINK */}
-                <p className="text-center text-sm mt-6">
-                  Already have an account?{" "}
-                  <Link
-                    href="/signup"
-                    className="text-blue-600 font-semibold hover:underline"
-                  >
-                   SignUp
-                  </Link>
-                </p>
+          <TextField isRequired name="email">
+            <label className="text-sm font-medium">Email</label>
+            <Input
+              name="email"
+              placeholder="john@example.com"
+              className="w-full"
+            />
+            <FieldError />
+          </TextField>
 
-      </Form>
-    </Card>
+          <TextField isRequired name="password">
+            <label className="text-sm font-medium">Password</label>
+            <Input
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              className="w-full"
+            />
+            <FieldError />
+          </TextField>
+
+          {/* BUTTON */}
+          <Button
+            type="submit"
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-gray-900 to-gray-700 text-white font-semibold hover:opacity-90"
+          >
+            Sign In
+          </Button>
+
+          {/* DIVIDER */}
+          <div className="flex items-center gap-3 my-4">
+            <div className="flex-1 h-px bg-gray-200" />
+            <span className="text-xs text-gray-400 uppercase">
+              or
+            </span>
+            <div className="flex-1 h-px bg-gray-200" />
+          </div>
+
+          {/* GOOGLE */}
+          <button
+            type="button"
+            className="w-full border py-3 rounded-xl flex items-center justify-center gap-3 hover:bg-gray-100 transition"
+          >
+            <img
+              src="https://www.svgrepo.com/show/475656/google-color.svg"
+              alt="google"
+              className="w-5 h-5"
+            />
+            <span className="font-medium">
+              Continue with Google
+            </span>
+          </button>
+
+          {/* SIGNUP LINK */}
+          <p className="text-center text-sm mt-4">
+            Don’t have an account?{" "}
+            <Link
+              href="/signup"
+              className="text-blue-600 font-semibold hover:underline"
+            >
+              Sign Up
+            </Link>
+          </p>
+
+        </Form>
+      </Card>
+    </div>
   );
 }
