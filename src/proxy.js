@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server'
 import { auth } from './src/lib/auth'
+import { headers } from 'next/headers'
 
 // This function can be marked `async` if using `await` inside
 export async function proxy(request) {
   const session = await auth.api.getSession({
-    headers: request.headers,
+    headers: await headers()
   })
 
   if (!session) {
@@ -15,5 +16,4 @@ export async function proxy(request) {
 }
 
 export const config = {
-  matcher: ['/profile', '/all-animals/:id'],
-}
+  matcher: ['/profile', '/all-animals/:path*']}
