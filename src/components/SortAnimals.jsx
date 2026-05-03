@@ -16,11 +16,11 @@ const SortAnimals = ({ animals }) => {
     <div>
 
       {/* Sort dropdown*/}
-      <div className="flex justify-end mt-6">
+      <div className="flex justify-start mt-6">
         <select
           value={sort}
           onChange={(e) => setSort(e.target.value)}
-          className="px-3 py-2 border rounded text-black"
+          className="px-3 py-2 border shadow rounded text-black"
         >
           <option value="">Sort by Price</option>
           <option value="low">Low → High</option>
