@@ -1,23 +1,39 @@
 "use client";
 
 import { useSpring, animated } from "@react-spring/web";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 const AnimationCard = ({ children, delay = 0 }) => {
-  const [show, setShow] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShow(true), delay);
-    return () => clearTimeout(timer);
+    const handleScroll = () => {
+      const element = document.getElementById("card-" + delay);
+      if (!element) return;
+
+      const rect = element.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight - 100;
+
+      if (isVisible) setVisible(true);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // run once on load
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [delay]);
 
   const styles = useSpring({
-    opacity: show ? 1 : 0,
-    transform: show ? "translateY(0px)" : "translateY(40px)",
-    config: { tension: 160, friction: 18 },
+    opacity: visible ? 1 : 0,
+    transform: visible ? "translateY(0px)" : "translateY(50px)",
+    delay,
   });
 
-  return <animated.div style={styles}>{children}</animated.div>;
+  return (
+    <animated.div id={"card-" + delay} style={styles}>
+      {children}
+    </animated.div>
+  );
 };
 
 export default AnimationCard;

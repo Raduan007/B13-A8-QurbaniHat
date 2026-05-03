@@ -29,7 +29,7 @@ const Navbar = () => {
           <Image src="/logo.png" alt="logo" width={45} height={45} />
           <h3 className="font-bold text-lg">
             <span className="text-xl md:text-4xl">QurBaniHat</span>
-            <span className="text-red-500 text-xl md:text-4xl"> Livestock</span>
+            <span className="text-red-500 text-xl md:text-2xl"> Livestock</span>
            
           </h3>
         </div>
