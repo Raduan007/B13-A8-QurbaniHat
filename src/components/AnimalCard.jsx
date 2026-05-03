@@ -1,6 +1,7 @@
 import { Card, Chip } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 const AnimalCard = ({ animal }) => {
   return (
@@ -30,14 +31,15 @@ const AnimalCard = ({ animal }) => {
           {animal.description}
         </p>
 
-        <div className="text-center pt-2">
-          <Link
-            href={`/all-animals/${animal.id}`}
-            className="inline-block px-4 py-2 bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-md transition-all duration-300 hover:scale-105 active:scale-95"
-          >
-            View Details
-          </Link>
-        </div>
+       <div className="text-center pt-2">
+        <Link
+       href={`/all-animals/${animal.id}`}
+    onClick={() => toast.success("Opening details...")}
+           className="inline-block px-4 py-2 bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-md transition-all duration-300 hover:scale-105 active:scale-95"
+      >
+        View Details
+       </Link>
+    </div>
 
       </Card>
     </div>

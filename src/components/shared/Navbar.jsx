@@ -24,20 +24,17 @@ const Navbar = () => {
 
       <nav className="flex justify-between items-center px-4 py-2">
 
-        {/* LOGO */}
+        {/* logo */}
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="logo" width={45} height={45} />
           <h3 className="font-bold text-lg">
-            <span className="text-xl md:text-4xl">QurbaniHat</span>{" "}
+            <span className="text-xl md:text-4xl">QurBaniHat</span>
             <span className="text-red-400 text-xl md:text-4xl">Livestock</span>
-            <br />
-            <span className="hidden md:inline text-sm text-gray-200">
-              Booking Platform
-            </span>
+           
           </h3>
         </div>
 
-        {/* DESKTOP NAV */}
+        {/* Desktop nav */}
         <div className="hidden md:flex items-center justify-between w-full px-10">
 
           {/* CENTER NAV */}
