@@ -3,7 +3,7 @@
 import { useSpring, animated } from "@react-spring/web";
 import { useEffect, useState } from "react";
 
-const AnimatedCard = ({ children, delay = 0 }) => {
+const AnimationCard = ({ children, delay = 0 }) => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -20,4 +20,4 @@ const AnimatedCard = ({ children, delay = 0 }) => {
   return <animated.div style={styles}>{children}</animated.div>;
 };
 
-export default AnimatedCard;
+export default AnimationCard;
