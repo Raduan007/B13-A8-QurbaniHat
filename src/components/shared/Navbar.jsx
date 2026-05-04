@@ -196,7 +196,7 @@ const Navbar = () => {
                 onClick={() => setOpen(false)}
                 className={`px-2 py-2 rounded ${
                   pathname === "/signup"
-                    ? "bg-blue-600 text-white"
+                    ? " text-white"
                     : "hover:bg-gray-800"
                 }`}
               >
@@ -207,7 +207,7 @@ const Navbar = () => {
                 onClick={() => setOpen(false)}
                 className={`px-2 py-2 rounded ${
                   pathname === "/signin"
-                    ? "bg-blue-600 text-white"
+                    ? " text-white"
                     : "hover:bg-gray-800"
                 }`}
               >
