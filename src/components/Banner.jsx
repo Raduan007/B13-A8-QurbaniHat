@@ -39,15 +39,15 @@ const Banner = () => {
 
 
 
-  <div className="flex items-center bg-gray-600 text-white overflow-hidden py-2">
+  <div className="flex items-center bg-gray-600 text-white overflow-hidden py-4">
   
-  <div className="px-4 font-semibold whitespace-nowrap border-r border-white/30">
+  <div className="px-4 font-semibold whitespace-nowrap border-r border-white/30 text-red-300 text-xl ">
     Announcement
   </div>
 
   <div className="overflow-hidden w-full">
     <div className="animate-marquee-jump whitespace-nowrap pl-4 space-x-8 ">
-    <span>  Eid QurBani Offer Book now </span> <span> Fast delivery</span> <span> Best price guaranteed</span> <span> Premium breeds </span>
+    <span>  Eid QurBani Offer Book now |</span> <span> Fast delivery |</span> <span> Best price guaranteed |</span> <span> Premium breeds |</span>
     </div>
   </div>
 
