@@ -25,7 +25,7 @@ const Navbar = () => {
       return;
     }
 
-    toast.success("Logged out successfully 👋");
+    toast.success("Logged out successfully ");
 
     router.push("/");
     router.refresh();
