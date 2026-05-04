@@ -47,7 +47,7 @@ const Banner = () => {
 
   <div className="overflow-hidden w-full">
     <div className="animate-marquee-jump whitespace-nowrap pl-4 space-x-8 ">
-    <span>  Eid QurBani Offer! Book now </span> <span> Fast delivery</span> <span> Best price guaranteed</span> <span> Premium breeds </span>
+    <span>  Eid QurBani Offer Book now </span> <span> Fast delivery</span> <span> Best price guaranteed</span> <span> Premium breeds </span>
     </div>
   </div>
 
