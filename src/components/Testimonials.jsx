@@ -22,7 +22,7 @@ const Testimonials = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
         {/* Card 1 */}
-        <AnimationCard delay={150}>
+        <AnimationCard delay={450}>
           <div className="p-5 rounded-xl shadow-md bg-gray-500 text-white hover:scale-[1.04] transition  mx-5 md:mx-0 ">
 
             <div className="flex text-yellow-300 text-lg">
@@ -44,7 +44,7 @@ const Testimonials = () => {
           </div>
         </AnimationCard>
          {/* Card 2 */}
-        <AnimationCard delay={150}>
+        <AnimationCard delay={450}>
           <div className="p-5 rounded-xl shadow-md bg-gray-500 text-white hover:scale-[1.04] transition  mx-5 md:mx-0 ">
 
             <div className="flex text-yellow-300 text-lg">
@@ -67,7 +67,7 @@ const Testimonials = () => {
         </AnimationCard>
 
         {/* Card 3 */}
-        <AnimationCard delay={150}>
+        <AnimationCard delay={450}>
           <div className="p-5 rounded-xl shadow-md bg-gray-500 text-white hover:scale-[1.04] transition  mx-5 md:mx-0 ">
 
             <div className="flex text-yellow-300 text-lg">
@@ -92,7 +92,7 @@ const Testimonials = () => {
         
        
         {/* CRD 4 */}
-        <AnimationCard delay={150}>
+        <AnimationCard delay={450}>
           <div className="p-5 rounded-xl shadow-md bg-gray-500 text-white hover:scale-[1.04] transition  mx-5 md:mx-0 ">
 
             <div className="flex text-yellow-300 text-lg">

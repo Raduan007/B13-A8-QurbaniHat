@@ -19,7 +19,7 @@ const TopBreeds = () => {
           </div>
         </AnimationCard>
 
-        <AnimationCard delay={150}>
+        <AnimationCard delay={300}>
           <div className="p-5 rounded-xl shadow-md bg-gray-700 text-center hover:scale-[1.03] hover:shadow-xl transition  mx-5 md:mx-0 ">
             <h3 className="font-bold text-lg">Sahiwal</h3>
             <p className="text-sm  mt-2">
@@ -28,7 +28,7 @@ const TopBreeds = () => {
           </div>
         </AnimationCard>
 
-        <AnimationCard delay={150}>
+        <AnimationCard delay={450}>
  <div className="p-5 rounded-xl shadow-md bg-gray-700 text-center hover:scale-[1.03] hover:shadow-xl transition  mx-5 md:mx-0 ">
             <h3 className="font-bold text-lg">Brahman</h3>
             <p className="text-sm mt-2">
@@ -37,7 +37,7 @@ const TopBreeds = () => {
           </div>
         </AnimationCard>
 
-        <AnimationCard delay={150}>
+        <AnimationCard delay={450}>
  <div className="p-5 rounded-xl shadow-md bg-gray-700 text-center hover:scale-[1.03] hover:shadow-xl transition  mx-5 md:mx-0 ">
             <h3 className="font-bold text-lg">Black Bengal Goat</h3>
             <p className="text-sm mt-2">

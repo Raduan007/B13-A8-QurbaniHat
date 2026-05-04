@@ -9,7 +9,7 @@ const QurBaniTips = () => {
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-8 text-white">
-          <AnimationCard delay={150}>
+          <AnimationCard delay={0}>
      <div className="p-5  mx-5 md:mx-0 border rounded-xl shadow-sm transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl active:scale-95 bg-gray-800">
           <h3 className="font-bold text-lg">Choose Healthy Animal</h3>
           <p className="text-sm  mt-2">
@@ -25,7 +25,7 @@ const QurBaniTips = () => {
             </p>
           </div>
         </AnimationCard>
- <AnimationCard delay={150}>
+ <AnimationCard delay={300}>
        <div className="p-5  mx-5 md:mx-0 border rounded-xl shadow-sm transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl active:scale-95 bg-gray-800">
           <h3 className="font-bold text-lg">Proper Feeding & Care</h3>
           <p className="text-sm  mt-2">
@@ -33,7 +33,7 @@ const QurBaniTips = () => {
           </p>
         </div>
         </AnimationCard>
- <AnimationCard delay={150}>
+ <AnimationCard delay={450}>
        <div className="p-5 mx-5 md:mx-0 border rounded-xl shadow-sm transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl active:scale-95 bg-gray-800">
           <h3 className="font-bold text-lg">Follow Islamic Rules</h3>
           <p className="text-sm  mt-2">
