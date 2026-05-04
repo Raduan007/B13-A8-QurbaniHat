@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { usePathname, useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const userData = authClient.useSession();
@@ -16,20 +17,25 @@ const Navbar = () => {
   const router = useRouter();
   const [open, setOpen] = useState(false);
 
-  
   const handleSignOut = async () => {
-    await authClient.signOut();
+    const res = await authClient.signOut();
 
-    router.push("/");    
-    router.refresh();    
-    setOpen(false);      
+    if (res?.error) {
+      toast.error("Logout failed");
+      return;
+    }
+
+    toast.success("Logged out successfully 👋");
+
+    router.push("/");
+    router.refresh();
+    setOpen(false);
   };
 
   return (
     <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700">
       <nav className="flex justify-between items-center px-4 py-2">
 
-        {/* logo */}
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="logo" width={45} height={45} />
           <h3 className="font-bold text-lg">
@@ -38,10 +44,8 @@ const Navbar = () => {
           </h3>
         </div>
 
-        {/* Desktop nav */}
         <div className="hidden md:flex items-center justify-between w-full px-10">
 
-          {/* CENTER NAV */}
           <div className="flex items-center gap-5 mx-auto">
 
             <Link
@@ -77,11 +81,28 @@ const Navbar = () => {
 
           </div>
 
-          {/* AUTH DESKTOP */}
           {!user ? (
             <div className="flex gap-3 ml-4">
-              <Link href="/signup">SignUp</Link>
-              <Link href="/signin">SignIn</Link>
+              <Link
+                href="/signup"
+                className={`px-3 py-2 rounded transition-all duration-200 ${
+                  pathname === "/signup"
+                    ? "bg-blue-600 text-white"
+                    : "hover:text-blue-400"
+                }`}
+              >
+                SignUp
+              </Link>
+              <Link
+                href="/signin"
+                className={`px-3 py-2 rounded transition-all duration-200 ${
+                  pathname === "/signin"
+                    ? "bg-blue-600 text-white"
+                    : "hover:text-blue-400"
+                }`}
+              >
+                SignIn
+              </Link>
             </div>
           ) : (
             <div className="flex items-center gap-3 ml-4">
@@ -102,7 +123,6 @@ const Navbar = () => {
 
         </div>
 
-        {/* MOBILE HAMBURGER */}
         <button
           className="md:hidden"
           onClick={() => setOpen(true)}
@@ -112,7 +132,6 @@ const Navbar = () => {
 
       </nav>
 
-      {/* BACKDROP */}
       {open && (
         <div
           onClick={() => setOpen(false)}
@@ -120,7 +139,6 @@ const Navbar = () => {
         />
       )}
 
-      {/* MOBILE DRAWER */}
       <div
         className={`fixed top-4 right-4 w-[30%] bg-gray-900 rounded-lg z-50 transition-all duration-300 ${
           open ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
@@ -129,35 +147,70 @@ const Navbar = () => {
 
         <div className="p-4 flex flex-col gap-3">
 
-          {/* CLOSE */}
           <div className="flex justify-end">
             <button onClick={() => setOpen(false)}>
               <FiX size={20} />
             </button>
           </div>
 
-          {/* NAV */}
-          <Link href="/" onClick={() => setOpen(false)} className="px-2 py-2 hover:bg-gray-800 rounded text-sm">
+          <Link
+            href="/"
+            onClick={() => setOpen(false)}
+            className={`px-2 py-2 rounded text-sm ${
+              pathname === "/" ? "bg-blue-600 text-white" : "hover:bg-gray-800"
+            }`}
+          >
             Home
           </Link>
 
-          <Link href="/all-animals" onClick={() => setOpen(false)} className="px-2 py-2 hover:bg-gray-800 rounded text-sm">
+          <Link
+            href="/all-animals"
+            onClick={() => setOpen(false)}
+            className={`px-2 py-2 rounded text-sm ${
+              pathname === "/all-animals"
+                ? "bg-blue-600 text-white"
+                : "hover:bg-gray-800"
+            }`}
+          >
             All Animals
           </Link>
 
-          <Link href="/profile" onClick={() => setOpen(false)} className="px-2 py-2 hover:bg-gray-800 rounded text-sm">
+          <Link
+            href="/profile"
+            onClick={() => setOpen(false)}
+            className={`px-2 py-2 rounded text-sm ${
+              pathname === "/profile"
+                ? "bg-blue-600 text-white"
+                : "hover:bg-gray-800"
+            }`}
+          >
             Profile
           </Link>
 
           <hr className="border-gray-700" />
 
-          {/* AUTH MOBILE */}
           {!user ? (
             <div className="flex flex-col gap-2 text-sm">
-              <Link href="/signup" onClick={() => setOpen(false)}>
+              <Link
+                href="/signup"
+                onClick={() => setOpen(false)}
+                className={`px-2 py-2 rounded ${
+                  pathname === "/signup"
+                    ? "bg-blue-600 text-white"
+                    : "hover:bg-gray-800"
+                }`}
+              >
                 SignUp
               </Link>
-              <Link href="/signin" onClick={() => setOpen(false)}>
+              <Link
+                href="/signin"
+                onClick={() => setOpen(false)}
+                className={`px-2 py-2 rounded ${
+                  pathname === "/signin"
+                    ? "bg-blue-600 text-white"
+                    : "hover:bg-gray-800"
+                }`}
+              >
                 SignIn
               </Link>
             </div>
