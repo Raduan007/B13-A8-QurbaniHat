@@ -33,7 +33,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700">
+  
+      <div className="w-full text-white bg-gradient-to-r from-gray-900 to-gray-700">
       <nav className="flex justify-between items-center px-4 py-2">
 
         <div className="flex items-center gap-2">
@@ -242,6 +243,8 @@ const Navbar = () => {
       </div>
 
     </div>
+            
+  
   );
 };
 

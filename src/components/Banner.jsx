@@ -4,7 +4,8 @@ import { FaFirefoxBrowser } from "react-icons/fa";
 
 const Banner = () => {
   return (
-    <section className="bg-[url('/banner.jpg')] bg-cover bg-center">
+   <section>
+     <div className="bg-[url('/banner.jpg')] bg-cover bg-center">
       
       <div className="text-white space-y-6 md:space-y-8 py-20 md:py-18 px-4 sm:px-10 md:px-20 lg:px-40 text-center md:text-left">
 
@@ -34,7 +35,24 @@ const Banner = () => {
         </Link>
 
       </div>
-    </section>
+    </div>
+
+
+
+  <div className="flex items-center bg-gray-600 text-white overflow-hidden py-2">
+  
+  <div className="px-4 font-semibold whitespace-nowrap border-r border-white/30">
+    Announcement
+  </div>
+
+  <div className="overflow-hidden w-full">
+    <div className="animate-marquee-jump whitespace-nowrap pl-4 space-x-8 ">
+    <span>  Eid QurBani Offer! Book now </span> <span> Fast delivery</span> <span> Best price guaranteed</span> <span> Premium breeds </span>
+    </div>
+  </div>
+
+</div>
+   </section>
   );
 };
 
